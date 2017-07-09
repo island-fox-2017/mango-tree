@@ -173,13 +173,87 @@ do {
 } while (appleTree._healthyStatus != false)
 
 console.log(`The tree has met its end. :sad:`);
-
+console.log();console.log();
 //-------------------------------------------------------------------------------------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------------------------------//
 
 // Release 2
-class FruitTree {}
-class Fruit {}
+class FruitTree {
+
+    // Initialize a new Tree
+    constructor() {
+      this._age = 0;
+      this._height = 0;
+      this._fruits = [];
+      this._healthyStatus = true;
+    }
+
+    get age() {
+      return this._age;
+    }
+
+    get height() {
+      return this._height;
+    }
+
+    get fruits() {
+      return this._fruits;
+    }
+
+    get healthyStatus() {
+      return this._healthyStatus;
+    }
+
+
+    // Get current states here
+
+    // Grow the tree
+    grow() {
+      if (this._age < 15) {
+        if (this._age < 10) this._height = this._height + parseFloat((Math.random()*5).toFixed(2));
+        this._age = this._age + 1;
+      }
+      if (this._age >= 15) {
+        this._healthyStatus = false;
+      }
+    }
+
+    // Produce some mangoes
+    produceMangoes() {
+      let randomize = Math.floor(Math.random()*10+1);
+      for (let i = 0; i < randomize; i++) {
+        this._fruits.push(new Mango);
+      }
+    }
+
+    // Get some fruits
+    harvest() {
+      let good = 0, bad = 0;
+      for (let i = 0; i < this._fruits.length; i++) {
+        if(this._fruits[i]._quality === 'good') good++;
+        else bad++;
+      }
+      let harvested = this._fruits.length;
+      this._fruits = [];
+      return `${harvested} (${good} good, ${bad} bad)`;
+    }
+}
+
+class Fruit {
+  // Produce a fruit
+  constructor() {
+    this._quality = this.qualityCheck();
+  }
+
+  qualityCheck() {
+    let randomize = Math.floor(Math.random()*2);
+    if (randomize === 0) return "good";
+    else return "bad";
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------------------------------//
 
 // Release 3
 class TreeGrove {}
