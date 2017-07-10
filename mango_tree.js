@@ -99,28 +99,35 @@ class Mango extends Fruit {
    do {
      mangoTree.grow();
      mangoTree.produceFruits();
-     console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvest()}`)
+    //  console.log(`[Year ${mangoTree.age} Report] Height = ${mangoTree.height} | Fruits harvested = ${mangoTree.harvest()}`)
    } while (mangoTree.healthyStatus != false)
 
 
 // Release 1
-class AppleTree {
+class AppleTree extends FruitTree{
 
   // Initialize a new MangoTree
   constructor() {
     super()
     this.maxHeight == 5
-    this.maxAges =15
+    this.maxAges =10
   }
 
 }
 class Apple extends Fruit{
-  // Produce a mango
+
   constructor() {
-    super
+    super()
   }
 
 }
+
+  var appleTree = new AppleTree()
+  do {
+    appleTree.grow();
+    appleTree.produceFruits();
+    console.log(`[Year ${appleTree.age} Report] Height = ${appleTree.height} | Fruits harvested = ${appleTree.harvest()}`)
+  } while (appleTree.healthyStatus != false)
 
 
 // Release 3
