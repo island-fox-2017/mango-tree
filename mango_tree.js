@@ -231,4 +231,3 @@ class AppleTree extends FruitTree {
   console.log(grove.mature_trees());
   console.log('+++++++++++++++++ DEAD TREES ++++++++++++++++');
   console.log(grove.deadTrees());
-  
